@@ -1,0 +1,11 @@
+D:\Users\UL0246827\source\repos\ASPdotNET\PierwszyASP\bin\Debug\netcoreapp3.1\PierwszyASP.exe
+D:\Users\UL0246827\source\repos\ASPdotNET\PierwszyASP\bin\Debug\netcoreapp3.1\PierwszyASP.deps.json
+D:\Users\UL0246827\source\repos\ASPdotNET\PierwszyASP\bin\Debug\netcoreapp3.1\PierwszyASP.runtimeconfig.json
+D:\Users\UL0246827\source\repos\ASPdotNET\PierwszyASP\bin\Debug\netcoreapp3.1\PierwszyASP.runtimeconfig.dev.json
+D:\Users\UL0246827\source\repos\ASPdotNET\PierwszyASP\bin\Debug\netcoreapp3.1\PierwszyASP.dll
+D:\Users\UL0246827\source\repos\ASPdotNET\PierwszyASP\bin\Debug\netcoreapp3.1\PierwszyASP.pdb
+D:\Users\UL0246827\source\repos\ASPdotNET\PierwszyASP\obj\Debug\netcoreapp3.1\PierwszyASP.csprojAssemblyReference.cache
+D:\Users\UL0246827\source\repos\ASPdotNET\PierwszyASP\obj\Debug\netcoreapp3.1\PierwszyASP.AssemblyInfoInputs.cache
+D:\Users\UL0246827\source\repos\ASPdotNET\PierwszyASP\obj\Debug\netcoreapp3.1\PierwszyASP.AssemblyInfo.cs
+D:\Users\UL0246827\source\repos\ASPdotNET\PierwszyASP\obj\Debug\netcoreapp3.1\PierwszyASP.dll
+D:\Users\UL0246827\source\repos\ASPdotNET\PierwszyASP\obj\Debug\netcoreapp3.1\PierwszyASP.pdb
