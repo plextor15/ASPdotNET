@@ -35,5 +35,12 @@ namespace PierwszyASP
         {
             return HashCode.Combine(Pesel);
         }
+
+        // Tak nie mozna robic, bo sie wszystko rozleci
+        //Random rand = new Random();
+        //public override int GetHashCode()
+        //{
+        //    return rand.Next();
+        //}
     }
 }
