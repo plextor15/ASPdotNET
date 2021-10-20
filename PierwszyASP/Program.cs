@@ -37,9 +37,9 @@ namespace PierwszyASP
         static void Main(string[] args) 
         {
             List<Osoba> osoby = new List<Osoba>();
-            osoby.Add(new Osoba("Andrzej", "Kownacki", "1998/02/15", 98021526123));
-            osoby.Add(new Osoba("Andrzej", "Kownacki", "1998/02/15", 98021526123));
-            osoby.Add(new Osoba("Marcin", "Blendowski", "1995/04/27", 95042726157));
+            osoby.Add(new Osoba("Andrzej", "Kownacki", "1998/02/15", 98021526123L));
+            osoby.Add(new Osoba("Andrzej", "Kownacki", "1998/02/15", 98021526123L));
+            osoby.Add(new Osoba("Marcin", "Blendowski", "1995/04/27", 95042726157L));
 
             for (int i = 0; i < osoby.Count; i++)
             {
@@ -85,13 +85,44 @@ namespace PierwszyASP
             zarobki[osoby[2]] = 10000000.00;
 
             foreach (Osoba o in zarobki.Keys)
+            {
                 Console.WriteLine(o.Imie + " " + o.Nazwisko + " - zarobki: " + zarobki[o]);
+            }
 
+
+
+            Console.WriteLine("\n\n\n==========  SORTOWANIE - COMPARETO  ==========");
+
+            osoby.Add(new Osoba("Anna", "Wilczynska", "1995/04/27", 95122726157L));
+
+            osoby.Sort();
+            foreach (Osoba o in osoby)
+            {
+                Console.WriteLine(o);
+            }
+
+            Console.WriteLine("\n\n");
+            osoby.Sort(new CompareBySurname());
+            foreach (Osoba o in osoby)
+            {
+                Console.WriteLine(o.Imie + " " + o.Nazwisko);
+            }
+
+            Console.WriteLine("\n\n");
+            osoby.Sort(); //"wymieszanie"
+            osoby.Sort(Osoba.GetComparerByName());
+            foreach (Osoba o in osoby)
+            {
+                Console.WriteLine(o.Imie + " " + o.Nazwisko);
+            }
+
+            /*foreach (Osoba o in osoby)
+            {
+                Console.WriteLine(o.Pesel);
+                osoby[0].CompareTo(o);
+            }*/
         }
 
-        /*static void Main(string[] args)
-        {
-
-        }*/
+        //static void Main(string[] args){}
     }
 }
