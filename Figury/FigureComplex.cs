@@ -54,7 +54,7 @@ namespace Figury
         {
             if (o is IFigure && o is IGraphicObject) 
             {
-                positiveElements.Add(o);
+                positiveElements.Add(o); //wywala error
             }
         }
         public void AddNegativeElement(Object o)

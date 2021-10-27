@@ -24,26 +24,22 @@ namespace Figury
             //throw new NotImplementedException();
             Console.WriteLine("Rysuje prostokat w: " + X + "," + Y); //DEBUG ONLY!!!
         }
-
         public double Field()
         {
             //throw new NotImplementedException();
             return Width * Height;
         }
-
         public double Perimeter()
         {
             //throw new NotImplementedException();
             return 2 * (Width + Height);
         }
-
         public void Scale(double factor)
         {
             //throw new NotImplementedException();
             Width *= factor;
             Height *= factor;
         }
-
         public void Move(double dx, double dy)
         {
             //throw new NotImplementedException();

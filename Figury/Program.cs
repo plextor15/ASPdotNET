@@ -12,7 +12,7 @@ namespace Figury
             garden.AddPositiveElement(new Rectangle(20, 20, 150, 60));
             garden.AddNegativeElement(new Rectangle(100, 40, 70, 20));
 
-            Circle c = new Circle(); //debug
+            Circle c = new Circle(10,10,1.5); //debug
             garden.AddNegativeElement(c);
 
             garden.Draw();
