@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}  
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+function appendRow() {
+  //var txt1 = "<p>Text.</p>";        // Create text with HTML
+  //var txt2 = $("<p></p>").text("Text.");  // Create text with jQuery
+  //var txt3 = document.createElement("p");
+  //txt3.innerHTML = "Text.";         // Create text with DOM
+  //$("body").append(txt1, txt2, txt3);   // Append new elements
+
+
+  $("tbody").append("<tr>" 
+                    , "<td>", $("#imie").val(), "</td>"
+                    , "<td>", $("#nazwisko").val(), "</td>"
+                    , "<td>", $("#wiek").val(), "</td>"
+                    , "</tr>");
+
+ /* $("table").append( 
+                     $("#imie").val()//, "</td>"
+                    , $("#nazwisko").val()//, "</td>"
+                    , $("#wiek").val()//, "</td>"
+                    , "</tr>");*/
+
+/*$("tbody").append(
+  $("<tr></tr>").text(
+      $("<td></td>").text(
+          $("#imie").val()
+      ),
+      $("<td></td>").text(
+          $("#nazwisko").val()
+      ),
+      $("<td></td>").text(
+          $("#wiek").val()
+      )
+  )
+);*/
+
+}
+</script>
+</head>
+<body>
+
+<p>This is a paragraph.</p>
+<br>
+
+<table>
+  <tr>
+    <th>Imie</th>
+    <th>Nazwisko</th>
+    <th>Wiek</th>
+  </tr>
+  <tr>
+    <td>Andrzej</td>
+    <td>Kownacki</td>
+    <td>27</td>
+  </tr>
+</table>
+
+<hr>
+Imie: <input type="text" id="imie" value=""><br>
+Nazwisko: <input type="text" id="nazwisko" value=""><br>
+Wiek: <input type="text" id="wiek" value=""><br>
+<button onclick="appendRow()">Append row</button>
+
+</body>
+</html>
