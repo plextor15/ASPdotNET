@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="DynamicznaTabela.js"></script>
+</head>
+<body>
+    <table id="tabelka" style="border:solid">
+        <thead>
+            <tr id="row1">
+                <td>Imie</td>
+                <td>Nazwisko</td>
+                <td>Wiek</td>
+                <td></td>
+            </tr>
+        </thead>
+        <tr id="row2">
+            <td>Alicja</td>
+            <td>Alicewska</td>
+            <td>22</td>
+            <td><button class="minus">-</button></td>
+        </tr>
+    </table>
+
+    Imie: <input id="imie" type="text" /><br/>
+    Nazwisko:<input id="nazw" type="text" /><br/>
+    Wiek: <input id="wiek" type="text" /><br/>
+    <button id="dodaj" >+</button>
+</body>
+</html>
