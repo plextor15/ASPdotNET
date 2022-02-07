@@ -1,0 +1,49 @@
+﻿@model Komputerowy_SHOP.Models.Gpu
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Gpu</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Id_Product" class="control-label"></label>
+                <input asp-for="Id_Product" class="form-control" />
+                <span asp-validation-for="Id_Product" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VramGB" class="control-label"></label>
+                <input asp-for="VramGB" class="form-control" />
+                <span asp-validation-for="VramGB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gddr" class="control-label"></label>
+                <input asp-for="Gddr" class="form-control" />
+                <span asp-validation-for="Gddr" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Mhz" class="control-label"></label>
+                <input asp-for="Mhz" class="form-control" />
+                <span asp-validation-for="Mhz" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
