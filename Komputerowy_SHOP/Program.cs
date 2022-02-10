@@ -18,7 +18,7 @@ namespace Komputerowy_SHOP
             {
                 var services = scope.ServiceProvider;
 
-                try
+                /*try
                 {
                     SeedData.Initialize(services);
                 }
@@ -26,7 +26,7 @@ namespace Komputerowy_SHOP
                 {
                     var logger = services.GetRequiredService<ILogger<Program>>();
                     logger.LogError(ex, "An error occurred seeding the DB.");
-                }
+                }*/
             }
 
             host.Run();
