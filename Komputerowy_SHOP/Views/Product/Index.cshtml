@@ -14,7 +14,16 @@
 <form asp-controller="Product" asp-action="Index" method="get">
     <p>
         Nazwa: <input type="text" name="searchString" />
-        
+
+        Rodzaj: <select name="typ">
+            <option value="">-----</option>
+            <option value="0">Inne</option>
+            <option value="1">Procesory</option>
+            <option value="2">RAM</option>
+            <option value="3">Karty graficzne</option>
+            <option value="4">Dyski twarde</option>
+        </select>
+
         @*sortowanie*@
         Sortuj po <select name="sortow">
             <option value="">-----</option>
@@ -37,9 +46,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Amount)
             </th>
-            @*<th>
+            <th>
                 @Html.DisplayNameFor(model => model.Type)
-            </th>*@
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -78,6 +87,9 @@
                 <text>@NazwaTypu</text>
             }
         </td>*@
+            <td>
+                <text>@item.NazwaTypu()</text>
+            </td>
 
         <td>
             <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

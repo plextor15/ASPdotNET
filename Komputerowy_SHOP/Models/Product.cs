@@ -30,11 +30,11 @@ namespace Komputerowy_SHOP.Models
         [Display(Name = "Typ")]
         public int Type { get; set; }
 
-        public string NazwaTypu(int nr)
+        public string NazwaTypu()
         {
             string wynik = "lklklkl";
 
-            switch (nr)
+            switch (Type)
             {
                 case 0:
                     wynik = "Inne";
@@ -62,6 +62,11 @@ namespace Komputerowy_SHOP.Models
 
         public void kupiony() {
             Amount = Amount - 1;
+            return;
+        }
+        public void zwrot()
+        {
+            Amount = Amount + 1;
             return;
         }
     }

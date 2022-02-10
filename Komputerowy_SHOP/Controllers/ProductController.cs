@@ -51,6 +51,16 @@ namespace Komputerowy_SHOP.Controllers
             return View(await products.ToListAsync());
         }
 
+        public async Task<IActionResult> Koszyk()
+        {
+            var products = GlobalVar.GlobalListaZakupow; //placeholder
+
+            
+
+
+            return View(products);
+        }
+
 
         // GET: Product/Details/5
         /*public async Task<IActionResult> Details(int? id)
@@ -191,6 +201,16 @@ namespace Komputerowy_SHOP.Controllers
 
             return View(product);
         }
+        // POST: Product/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var product = await _context.Product.FindAsync(id);
+            _context.Product.Remove(product);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
 
         // GET: Product/Kup/5
         public async Task<IActionResult> Kup(int? id)
@@ -218,19 +238,56 @@ namespace Komputerowy_SHOP.Controllers
         {
             var product = await _context.Product.FindAsync(id);
             //_context.Product.Update(product);
+
+            Product zakupiony = new Product();
+            zakupiony.Id = product.Id;
+            zakupiony.Name = product.Name;
+            zakupiony.Price = product.Price;
+            zakupiony.Type = -1;
+            zakupiony.Amount = -1;
+            GlobalVar.GlobalListaZakupow.Add(zakupiony);
+            GlobalVar.SumaDoZaplaty += product.Price;
+            
             product.kupiony();
             _context.Product.Update(product);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        // POST: Product/Delete/5
-        [HttpPost, ActionName("Delete")]
+        // GET: Product/Zwrot/5
+        public async Task<IActionResult> Zwrot(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var product = await _context.Product.FirstOrDefaultAsync(m => m.Id == id);
+            
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View(product);
+        }
+        // POST: Product/Zwrot/5
+        [HttpPost, ActionName("Zwrot")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> ZwrotConfirmed(int id)
         {
             var product = await _context.Product.FindAsync(id);
-            _context.Product.Remove(product);
+            //_context.Product.Update(product);
+
+            Product zakupiony = new Product();
+            zakupiony.Name = product.Name;
+            zakupiony.Price = product.Price;
+            GlobalVar.GlobalListaZakupow.Remove(zakupiony);
+            GlobalVar.SumaDoZaplaty -= product.Price;
+
+            product.zwrot();
+            _context.Product.Update(product);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

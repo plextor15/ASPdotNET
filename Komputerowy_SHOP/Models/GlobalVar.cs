@@ -11,6 +11,8 @@ namespace Komputerowy_SHOP.Models
     {
         public static string GlobalUserName { get; set; }
         public static string GlobalProductName { get; set; }
-        public static List<Product> GlobalListaZakupow { get; set; }
+        public static List<Product> GlobalListaZakupow = new List<Product>();
+        //public static List<Product> GlobalListaZakupow { get; set; }
+        public static float SumaDoZaplaty = 0.0F;
     }
 }
