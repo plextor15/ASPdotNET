@@ -24,6 +24,31 @@ namespace Komputerowy_SHOP.Controllers
         {
             return View(await _context.Ram.ToListAsync());
         }
+        /*public async Task<IActionResult> Index(string sortow, string searchString)
+        {
+            var rams = from r in _context.Ram select r; //placeholder
+
+            *//*switch (sortow)
+            {
+                case "nazwa":
+                    rams = from r in _context.Product orderby r.Name select r;
+                    break;
+                case "cena":
+                    rams = from r in _context.Product orderby r.Price select r;
+                    break;
+                default:
+                    rams = from r in _context.Product select r;
+                    break;
+            }*/
+
+
+        /*if (!String.IsNullOrEmpty(searchString))
+        {
+            rams = rams.Where(r => r.Name.Contains(searchString));
+        }*//*
+
+        return View(await rams.ToListAsync());
+    }*/
 
         // GET: Ram/Details/5
         public async Task<IActionResult> Details(int? id)

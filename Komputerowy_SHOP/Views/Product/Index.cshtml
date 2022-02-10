@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<h1>Dostępne produkty</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -14,7 +14,14 @@
 <form asp-controller="Product" asp-action="Index" method="get">
     <p>
         Nazwa: <input type="text" name="searchString" />
-        <input type="submit" value="Znajdź" />
+        
+        @*sortowanie*@
+        Sortuj po <select name="sortow">
+            <option value="">-----</option>
+            <option value="nazwa">Nazwa</option>
+            <option value="cena">Cena</option>
+        </select>
+        <input type="submit" value="Filtruj" />
     </p>
 </form>
 

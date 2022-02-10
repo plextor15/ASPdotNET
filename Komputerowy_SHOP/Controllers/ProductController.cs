@@ -20,18 +20,37 @@ namespace Komputerowy_SHOP.Controllers
         }
 
         // GET: Product
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string sortow, string searchString, string typ)
         {
-            var products = from p in _context.Product
-                         select p;
+            var products = from p in _context.Product select p; //placeholder
+
+            switch (sortow) {
+                case "nazwa":
+                    products = from p in _context.Product orderby p.Name select p;
+                    break;
+                case "cena":
+                    products = from p in _context.Product orderby p.Price select p;
+                    break;
+                default:
+                    products = from p in _context.Product select p;
+                    break;
+            }
+            
 
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(p => p.Name.Contains(searchString));
             }
 
-            return View(await _context.Product.ToListAsync());
+            if (!String.IsNullOrEmpty(typ))
+            {
+                int typint = int.Parse(typ);
+                products = products.Where(p => p.Type.Equals(typint) );
+            }
+
+            return View(await products.ToListAsync());
         }
+        
 
         // GET: Product/Details/5
         public async Task<IActionResult> Details(int? id)

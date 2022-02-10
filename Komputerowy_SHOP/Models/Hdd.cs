@@ -14,6 +14,7 @@ namespace Komputerowy_SHOP.Models
         public int Id_Product { get; set; }
         [Display(Name = "Pojemność (Gb)")]
         public int Gb { get; set; }
+        [Display(Name = "RPM")]
         public int Rpm { get; set; }
     }
 }

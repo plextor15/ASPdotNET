@@ -24,6 +24,37 @@ namespace Komputerowy_SHOP.Controllers
         {
             return View(await _context.Hdd.ToListAsync());
         }
+        /*public async Task<IActionResult> Index(string sortow, string searchString, string typ)
+        {
+            var products = from p in _context.Product select p; //placeholder
+
+            switch (sortow)
+            {
+                case "nazwa":
+                    products = from p in _context.Product where p.Type == 4 orderby p.Name select p;
+                    break;
+                case "cena":
+                    products = from p in _context.Product where p.Type == 4 orderby p.Price select p;
+                    break;
+                default:
+                    products = from p in _context.Product where p.Type == 4 select p;
+                    break;
+            }
+
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(p => p.Name.Contains(searchString));
+            }
+
+            *//*if (!String.IsNullOrEmpty(typ))
+            {
+                int typint = int.Parse(typ);
+                products = products.Where(p => p.Type.Equals(typint));
+            }*//*
+
+            return View(await products.ToListAsync());
+        }*/
 
         // GET: Hdd/Details/5
         public async Task<IActionResult> Details(int? id)

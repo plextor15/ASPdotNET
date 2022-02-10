@@ -9,6 +9,22 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
+@*Wyszukiwarka*@
+<form asp-controller="Product" asp-action="Index" method="get">
+    <p>
+        Nazwa: <input type="text" name="searchString" />
+
+        @*sortowanie*@
+        Sortuj po <select name="sortow">
+            <option value="">Nazwa</option>
+            <option value="nazwa">Nazwa</option>
+            <option value="cena">Cena</option>
+        </select>
+        <input type="submit" value="Filtruj" />
+    </p>
+</form>
+
 <table class="table">
     <thead>
         <tr>
@@ -25,23 +41,24 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id_Product)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Gb)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rpm)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id_Product)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Gb)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rpm)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
