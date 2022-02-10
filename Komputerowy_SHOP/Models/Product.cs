@@ -59,5 +59,10 @@ namespace Komputerowy_SHOP.Models
 
             return wynik;
         }
+
+        public void kupiony() {
+            Amount = Amount - 1;
+            return;
+        }
     }
 }

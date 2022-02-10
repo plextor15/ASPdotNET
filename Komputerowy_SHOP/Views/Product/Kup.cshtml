@@ -1,43 +1,45 @@
 ﻿@model Komputerowy_SHOP.Models.Product
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Kup";
 }
 
-<h1>Details</h1>
+<h1>Kup</h1>
 
+<h3>Na pewno chcesz to kupić?</h3>
 <div>
     <h4>Product</h4>
     <hr />
-    
     <dl class="row">
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Price)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Price)
         </dd>
-        <dt class="col-sm-2">
+        <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Amount)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Amount)
         </dd>
-        <dt class="col-sm-2">
+        @*<dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Type)
         </dt>
-        <dd class="col-sm-10">
+        <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Type)
-        </dd>
+        </dd>*@
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    
+    <form asp-action="Kup">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Kup" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
 </div>

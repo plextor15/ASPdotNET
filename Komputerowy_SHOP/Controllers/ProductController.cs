@@ -50,10 +50,10 @@ namespace Komputerowy_SHOP.Controllers
 
             return View(await products.ToListAsync());
         }
-        
+
 
         // GET: Product/Details/5
-        public async Task<IActionResult> Details(int? id)
+        /*public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -62,6 +62,38 @@ namespace Komputerowy_SHOP.Controllers
 
             var product = await _context.Product
                 .FirstOrDefaultAsync(m => m.Id == id);
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View(product);
+        }*/
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var product = await _context.Product.FirstOrDefaultAsync(m => m.Id == id);
+            /*switch (product.Type) {
+                case 1:
+                    product = await _context.Cpu.FirstOrDefaultAsync(c => c.Id_Product == id);
+                    break;
+                case 2:
+                    var ram = await _context.Cpu.FirstOrDefaultAsync(r => r.Id_Product == id);
+                    break;
+                case 3:
+                    var gpu = await _context.Cpu.FirstOrDefaultAsync(g => g.Id_Product == id);
+                    break;
+                case 4:
+                    var hdd = await _context.Cpu.FirstOrDefaultAsync(h => h.Id_Product == id);
+                    break;
+                case 0:
+                    break;
+            }*/
+
             if (product == null)
             {
                 return NotFound();
@@ -151,14 +183,45 @@ namespace Komputerowy_SHOP.Controllers
                 return NotFound();
             }
 
-            var product = await _context.Product
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var product = await _context.Product.FirstOrDefaultAsync(m => m.Id == id);
             if (product == null)
             {
                 return NotFound();
             }
 
             return View(product);
+        }
+
+        // GET: Product/Kup/5
+        public async Task<IActionResult> Kup(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var product = await _context.Product.FirstOrDefaultAsync(m => m.Id == id);
+            //product.kupiony();
+            //_context.Product.Update(product);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View(product);
+        }
+        // POST: Product/Kup/5
+        [HttpPost, ActionName("Kup")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> KupConfirmed(int id)
+        {
+            var product = await _context.Product.FindAsync(id);
+            //_context.Product.Update(product);
+            product.kupiony();
+            _context.Product.Update(product);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
         // POST: Product/Delete/5
