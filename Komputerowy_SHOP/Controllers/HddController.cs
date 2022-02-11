@@ -47,11 +47,11 @@ namespace Komputerowy_SHOP.Controllers
                 products = products.Where(p => p.Name.Contains(searchString));
             }
 
-            *//*if (!String.IsNullOrEmpty(typ))
+            /*if (!String.IsNullOrEmpty(typ))
             {
                 int typint = int.Parse(typ);
                 products = products.Where(p => p.Type.Equals(typint));
-            }*//*
+            }/*
 
             return View(await products.ToListAsync());
         }*/
@@ -64,8 +64,11 @@ namespace Komputerowy_SHOP.Controllers
                 return NotFound();
             }
 
-            var hdd = await _context.Hdd
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var hdd = await _context.Hdd.FirstOrDefaultAsync(m => m.Id_Product == id); //"id" to id produktu, nie rodzaju
+
+            var prod = await _context.Product.FirstOrDefaultAsync(m => m.Id == id);
+            GlobalVar.GlobalProductName = prod.Name;
+
             if (hdd == null)
             {
                 return NotFound();

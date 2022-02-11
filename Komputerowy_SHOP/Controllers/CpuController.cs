@@ -33,8 +33,11 @@ namespace Komputerowy_SHOP.Controllers
                 return NotFound();
             }
 
-            var cpu = await _context.Cpu
-                .FirstOrDefaultAsync(m => m.Id == id);
+            var cpu = await _context.Cpu.FirstOrDefaultAsync(m => m.Id_Product == id); //"id" to id produktu, nie rodzaju
+
+            var prod = await _context.Product.FirstOrDefaultAsync(m => m.Id == id);
+            GlobalVar.GlobalProductName = prod.Name;
+
             if (cpu == null)
             {
                 return NotFound();

@@ -53,9 +53,7 @@ namespace Komputerowy_SHOP.Controllers
 
         public async Task<IActionResult> Koszyk()
         {
-            var products = GlobalVar.GlobalListaZakupow; //placeholder
-
-            
+            var products = GlobalVar.GlobalListaZakupow;
 
 
             return View(products);
@@ -281,8 +279,11 @@ namespace Komputerowy_SHOP.Controllers
             //_context.Product.Update(product);
 
             Product zakupiony = new Product();
+            zakupiony.Id = product.Id;
             zakupiony.Name = product.Name;
             zakupiony.Price = product.Price;
+            zakupiony.Type = -1;
+            zakupiony.Amount = -1;
             GlobalVar.GlobalListaZakupow.Remove(zakupiony);
             GlobalVar.SumaDoZaplaty -= product.Price;
 
