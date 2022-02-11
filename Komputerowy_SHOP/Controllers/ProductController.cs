@@ -241,7 +241,7 @@ namespace Komputerowy_SHOP.Controllers
             zakupiony.Id = product.Id;
             zakupiony.Name = product.Name;
             zakupiony.Price = product.Price;
-            zakupiony.Type = -1;
+            zakupiony.Type = GlobalVar.GlobalListaZakupow.Count; //Typ robi tutaj za numer na liscie
             zakupiony.Amount = -1;
             GlobalVar.GlobalListaZakupow.Add(zakupiony);
             GlobalVar.SumaDoZaplaty += product.Price;
@@ -253,13 +253,14 @@ namespace Komputerowy_SHOP.Controllers
         }
 
         // GET: Product/Zwrot/5
-        public async Task<IActionResult> Zwrot(int? id)
+        public async Task<IActionResult> Zwrot(int? id, string ktory)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
+            GlobalVar.NrDozwrotu = int.Parse(ktory);
             var product = await _context.Product.FirstOrDefaultAsync(m => m.Id == id);
             
 
@@ -284,13 +285,17 @@ namespace Komputerowy_SHOP.Controllers
             zakupiony.Price = product.Price;
             zakupiony.Type = -1;
             zakupiony.Amount = -1;
-            GlobalVar.GlobalListaZakupow.Remove(zakupiony);
+
+            //Typ robi tutaj za numer na liscie
+
+
+            GlobalVar.GlobalListaZakupow.RemoveAt(GlobalVar.NrDozwrotu);
             GlobalVar.SumaDoZaplaty -= product.Price;
 
             product.zwrot();
             _context.Product.Update(product);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Koszyk)); //zeby wrocil do Koszyka
         }
 
         private bool ProductExists(int id)

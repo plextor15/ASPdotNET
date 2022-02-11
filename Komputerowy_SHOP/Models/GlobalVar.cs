@@ -13,6 +13,7 @@ namespace Komputerowy_SHOP.Models
         public static string GlobalProductName { get; set; }
         public static List<Product> GlobalListaZakupow = new List<Product>();
         //public static List<Product> GlobalListaZakupow { get; set; }
+        public static int NrDozwrotu = -1; //numer produktu na liscie do zwrotu
         public static float SumaDoZaplaty = 0.0F;
     }
 }
