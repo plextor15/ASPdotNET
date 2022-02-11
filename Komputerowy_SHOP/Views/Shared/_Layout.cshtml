@@ -21,34 +21,48 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
+                        @*<li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                        </li>*@
 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Produkty</a>
                         </li>
 
                         @*<li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="CPU" asp-action="Index">Procesory</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="RAM" asp-action="Index">Pamięci RAM</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="GPU" asp-action="Index">Karty Graficzne</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="HDD" asp-action="Index">Dyski Twarde</a>
-                        </li>*@
+            <a class="nav-link text-dark" asp-area="" asp-controller="CPU" asp-action="Index">Procesory</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="RAM" asp-action="Index">Pamięci RAM</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="GPU" asp-action="Index">Karty Graficzne</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="HDD" asp-action="Index">Dyski Twarde</a>
+        </li>*@
                         @*<li class="nav-item">
-                            <a href="/Product?typ=4">Dyski Twarde</a>
-                        </li>*@
+            <a href="/Product?typ=4">Dyski Twarde</a>
+        </li>*@
+                        @if (GlobalVar.GlobalUserType == 0)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Create">Zaloguj|Rejestracja</a>
+                            </li>
+                        }
+                        @if (GlobalVar.GlobalUserType == 1)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Users</a>
+                            </li>
+                        }
+                        @if (GlobalVar.GlobalUserType == 2)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Koszyk">Koszyk</a>
+                            </li>
+                        }
 
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Koszyk">Users</a>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -62,7 +76,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - Komputerowy_SHOP - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2022 - Komputerowy_SHOP - <a asp-area="" asp-controller="Home" asp-action="Privacy">Placeholder</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

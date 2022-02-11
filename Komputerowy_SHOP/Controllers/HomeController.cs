@@ -18,6 +18,23 @@ namespace Komputerowy_SHOP.Controllers
             _logger = logger;
         }
 
+        //jako kto zalogowany
+        public IActionResult Guest()
+        {
+            GlobalVar.GlobalUserType = 0;
+            return View("Views/Home/Index.cshtml");
+        }
+        public IActionResult Admin()
+        {
+            GlobalVar.GlobalUserType = 1;
+            return View("Views/Home/Index.cshtml");
+        }
+        public IActionResult Userek()
+        {
+            GlobalVar.GlobalUserType = 2;
+            return View("Views/Home/Index.cshtml");
+        }
+
         public IActionResult Index()
         {
             return View();

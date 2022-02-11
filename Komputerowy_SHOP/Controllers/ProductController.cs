@@ -54,9 +54,7 @@ namespace Komputerowy_SHOP.Controllers
         public async Task<IActionResult> Koszyk()
         {
             var products = GlobalVar.GlobalListaZakupow;
-
-
-            return View(products);
+            return View(products); //await products.ToListAsync()
         }
 
 

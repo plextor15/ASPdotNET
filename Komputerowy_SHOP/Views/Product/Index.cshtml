@@ -68,7 +68,7 @@
 
                     if (ilosc >= 1)
                     {
-                        <text>@ilosc</text>
+                        <text>@ilosc szt.</text>
                     }
                     else
                     {
@@ -92,7 +92,10 @@
             </td>
 
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                @if (GlobalVar.GlobalUserType == 1) {
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                }
+
                 @*<a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
 
                 @*skladanie URL do przekierowania*@
@@ -131,7 +134,7 @@
 
                 @*<a asp-action="Delete" asp-route-id="@item.Id">Delete</a>*@
 
-                @if (ilosc >= 1)
+                @if (ilosc >= 1 && GlobalVar.GlobalUserType == 2)
                 {
                     <a asp-action="Kup" asp-route-id="@item.Id">Kup</a>
                 }

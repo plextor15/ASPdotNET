@@ -9,7 +9,8 @@ namespace Komputerowy_SHOP.Models
 {
     public static class GlobalVar
     {
-        public static string GlobalUserName { get; set; }
+        //public static string GlobalUserName { get; set; }
+        public static int GlobalUserType = 0;
         public static string GlobalProductName { get; set; }
         public static List<Product> GlobalListaZakupow = new List<Product>();
         //public static List<Product> GlobalListaZakupow { get; set; }
