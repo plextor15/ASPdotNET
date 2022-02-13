@@ -19,15 +19,23 @@ namespace Komputerowy_SHOP.Models
 
     public class Product
     {
+        [Required]
         public int Id { get; set; }
         [Display(Name = "Nazwa")]
+        [Required]
         public string Name { get; set; }
         [Display(Name = "Cena")]
         [Column(TypeName = "decimal(18, 2)")]
+        [Range(1, 100000)]
+        [Required]
         public float Price { get; set; }
         [Display(Name = "Ilość")]
+        [Range(1, 1000)]
+        [Required]
         public int Amount { get; set; }
         [Display(Name = "Typ")]
+        [Range(1, 4)]
+        [Required]
         public int Type { get; set; }
 
         public string NazwaTypu()
