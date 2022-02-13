@@ -6,9 +6,12 @@
 
 <h1>Dostępne produkty</h1>
 
+@if (GlobalVar.GlobalUserType == 1)
+{
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+}
 
 @*Wyszukiwarka*@
 <form asp-controller="Product" asp-action="Index" method="get">

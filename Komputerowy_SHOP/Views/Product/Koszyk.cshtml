@@ -4,7 +4,10 @@
     ViewData["Title"] = "Koszyk";
 }
 
-<h1>Koszyk</h1>
+
+<h1>Koszyk 
+    <text> @GlobalVar.GlobalUserName</text>
+</h1>
 
 <p>
     @*<a asp-action="Create">Create New</a>*@
@@ -28,33 +31,34 @@
     </thead>
     <tbody>
         @{ var i = 0; }
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price) zł
-            </td>
-            
-            @*<td>
-                @Html.DisplayFor(modelItem => item.Type)
-            </td>*@
-            <td>
-                @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |*@
-                @*<a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
-                @*<a asp-action="Zwrot" asp-route-id="@item.Id" asp-route="">Zwrot</a>*@
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price) zł
+                </td>
 
-                @{
-                    var url = "Zwrot/" + @item.Id + "?ktory=" + @i;
-                }
-                <a href="@url">Zwrot</a>
-            </td>
-        </tr>
-         
-            i += 1; 
-       
-}
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Type)
+                </td>*@
+                <td>
+                    @*<a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |*@
+                    @*<a asp-action="Details" asp-route-id="@item.Id">Details</a> |*@
+                    @*<a asp-action="Zwrot" asp-route-id="@item.Id" asp-route="">Zwrot</a>*@
+
+                    @{
+                        var url = "Zwrot/" + @item.Id + "?ktory=" + @i;
+                    }
+                    <a href="@url">Zwrot</a>
+                </td>
+            </tr>
+
+            i += 1;
+
+        }
         <tr>
             <td>
                 <b>W sumie do zapłaty</b>
@@ -68,6 +72,11 @@
                     <a asp-controller="Home" asp-action="Privacy">Płacenie</a> @*i wtedy odbylaby sie platnosc za towary*@
                 }
             </td>
-</tr>
+        </tr>
+
+        <br>
+        Zakupiony towar zostanie dostarczony pod adres:
+        <text>@GlobalVar.GlobalUserAdres </text>
+        <a asp-controller="Adres" asp-action="Edit" asp-route-id="4"> Zmień</a>
     </tbody>
 </table>

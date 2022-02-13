@@ -54,6 +54,16 @@ namespace Komputerowy_SHOP.Controllers
         public async Task<IActionResult> Koszyk()
         {
             var products = GlobalVar.GlobalListaZakupow;
+
+            var adres = from a in _context.Adres /*where a.Kto == GlobalVar.GlobalUserId*/ select a;
+            var ad = adres.Where(adres => adres.Kto.Equals(GlobalVar.GlobalUserId));
+            foreach (var adr in ad) 
+            {
+                GlobalVar.GlobalUserAdres = adr.Ulica;
+                GlobalVar.GlobalUserAdres += " " + adr.Nr + " " + adr.Miasto;
+            }
+            
+
             return View(products); //await products.ToListAsync()
         }
 

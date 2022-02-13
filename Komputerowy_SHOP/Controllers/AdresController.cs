@@ -111,7 +111,8 @@ namespace Komputerowy_SHOP.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                //return RedirectToAction(nameof(Index));
+                return View("Views/Home/Index.cshtml"); //powrot do Koszyka
             }
             return View(adres);
         }

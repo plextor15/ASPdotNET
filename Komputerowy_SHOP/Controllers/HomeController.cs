@@ -32,6 +32,8 @@ namespace Komputerowy_SHOP.Controllers
         public IActionResult Userek()
         {
             GlobalVar.GlobalUserType = 2;
+            GlobalVar.GlobalUserName = "apor";
+            GlobalVar.GlobalUserId = 9;
             return View("Views/Home/Index.cshtml");
         }
 

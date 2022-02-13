@@ -22,8 +22,8 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         @*<li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>*@
+            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </li>*@
 
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Produkty</a>
@@ -52,9 +52,23 @@
                         }
                         @if (GlobalVar.GlobalUserType == 1)
                         {
+
                             <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">Users</a>
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Cpu" asp-action="Index">CPU</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Ram" asp-action="Index">RAM</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Gpu" asp-action="Index">GPU</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Hdd" asp-action="Index">Storage</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">| Users</a>
+                            </li>
+                            
                         }
                         @if (GlobalVar.GlobalUserType == 2)
                         {
@@ -76,7 +90,8 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2022 - Komputerowy_SHOP - <a asp-area="" asp-controller="Home" asp-action="Privacy">Placeholder</a>
+            &copy; 2022 - Komputerowy_SHOP - Adam Porembiński
+            @*<a asp-area="" asp-controller="Home" asp-action="Privacy">Placeholder</a>*@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
